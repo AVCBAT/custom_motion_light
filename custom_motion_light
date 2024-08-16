@@ -1,0 +1,17 @@
+description: "Motion-activated Light with Conditions"
+alias: Motion-activated Light with Time-based Color
+use_blueprint:
+  path: AVCBAT/motion-activated_light_with_time-based_color.yaml
+  input:
+    motion_entity: binary_sensor.bedroom_s_motion_sensor_motion
+    light_target:
+      entity_id:
+        - light.wiz_rgbww_tunable_5932be
+        - light.wiz_rgbw_tunable_1855ce
+    no_motion_wait: 220
+    brightness: 255  # Adjust this for brightness
+
+condition:
+  condition: state
+  entity_id: light.luz_x
+  state: 'off'
